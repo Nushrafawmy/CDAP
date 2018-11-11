@@ -1,25 +1,8 @@
 <?php
-include 'header.php';
 include 'connection.php';
+include  'header.php';
 ?>
 
-    <!-- top navigation -->
-    <div class="top_nav">
-        <div class="nav_menu">
-            <nav>
-                <div class="nav toggle">
-                </div>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="">
-
-                    </li>
-
-
-                </ul>
-            </nav>
-        </div>
-    </div>   <!-- /top navigation -->
 
     <!-- page content area main -->
     <div class="right_col" role="main">
@@ -40,12 +23,16 @@ include 'connection.php';
                     </div>
                 </div>
             </div>
-            <form method="post" action="" name="form1">
+
                 <div class="clearfix"></div>
                 <div class="row" style="min-height:500px">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
+
+                                </div>
+                            <div class="x_content">
+                                <form method="post" action="" name="form1">
                                 <h2></h2>
                                 <select name="loc" class="form-control selectpicker"  >
                                     <?php //display arduino

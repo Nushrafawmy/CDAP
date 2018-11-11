@@ -19,6 +19,16 @@
 </head>
 
 <body class="nav-md">
+
+    <ol class="breadcrumb">
+
+        <a href="delete_updateBike.php">Alter Bike</a>
+
+        <a href="column.php" style="margin-left: 2%">Issue Bike Report</a>
+        <a href="pie.php" style="margin-left: 2%">Returned Report</a>
+
+    </ol>
+
 <div class="container body">
     <div class="main_container">
         <div class="col-md-3 left_col">
@@ -56,7 +66,7 @@
                             <li> <a href="display_bike.php"> Display Bicycle</a> </li>
                             <li > <a href="disply_user.php" > Display User </a>  </li>
                             <li> <a href="issue_bike.php"> Issue Bike</a> </li>
-                            <li> <a href="send_notification.php">Send Notification to Cyclist </a> </li>
+                            <li> <a href="s.php">Send Notification to Cyclist </a> </li>
                             <li> <a href="action.php">Response Cylist</a> </li>
                             <li> <a href="adminLogin.php">Log out</a> </li>
 

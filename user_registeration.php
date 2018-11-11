@@ -69,7 +69,7 @@ include 'connection.php';
                                 <tr>
                                     <td>
                                         User Name
-                                        <input type="text" class="form-control" placeholder="Enter User Name" name="username" required=""/>
+                                        <input type="text" class="form-control" placeholder="Enter User Name" name="username" required=""  />
                                     </td>
                                 </tr>
                                 <tr>
@@ -81,7 +81,7 @@ include 'connection.php';
                                 <tr>
                                     <td>
                                        Phone Number
-                                        <input type="text" class="form-control" placeholder=" Enter Phone Number" name="number" required=""/>                                    </td>
+                                        <input type="text" class="form-control" placeholder=" Enter Phone Number" name="number" required="" maxlength="10"/>                                    </td>
                                 </tr>
                                 <tr>
                                     <td>

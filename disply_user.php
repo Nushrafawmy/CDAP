@@ -95,7 +95,7 @@ include 'connection.php';
 
                     ?>
                         <?php
-$res= mysqli_query($link,"select * from user_registeration ");
+$res= mysqli_query($link,"select * from user_registeration  ");
  echo "<tr>";
  echo "<table class='table table-bordered'>";
  echo "<th>"; echo " User Id";  echo "</th>";

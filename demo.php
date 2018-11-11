@@ -54,34 +54,68 @@ session_start();
                         <div class="x_content">
                             <form name="form1" action="" method="post" class="col-lg-6 " enctype="multipart/form-data">
                                 <table class="table">
+                                    <td>
+                                        <select name="usr" class="form-control selectpicker"  >
+                                            <?php
+                                            $res=mysqli_query($link,"SELECT `issueID` FROM `issue_bike` ORDER BY `issueID` DESC LIMIT 1");
+                                            while ($row=mysqli_fetch_array($res))
+                                            {
+                                                echo "<option>";
+                                                echo $row["issueID"];
+
+                                                echo "</option>";
+                                            }
+
+                                            ?>
+
+                                        </select>
                                     <tr>
                                         <td>
+                                         Date  <input type="text" class="form-control" name="issueDate" id="issueDate" disabled value="<?php echo $_SESSION['issueDate']; ?>" style="width: 25%"/>
+                                          Return Date  <input type="text" class="form-control" name="returnDate" id="returnDate" disabled value="<?php echo $_SESSION['returnDate']; ?>" style="width: 25%" />
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                         No Of Days
 
-
-
-
-
-                                            Issue Date  <input type="text" class="form-control" name="issueDate" id="issueDate" value="<?php echo $_SESSION['issueDate']; ?>" />
-
-
-
-                                            Return Date  <input type="text" class="form-control" name="returnDate" id="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" />
-
-
+                                            <input type="text" class="form-control"   id="dateDiff" name="dateDiff" disabled value="<?php $date1=date_create($_SESSION['issueDate']);$date2=date_create($_SESSION['returnDate']);$diff= date_diff($date1,$date2);$diffStr=$diff->format('%a');echo $diffStr; ?>" style="width: 25%"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control"   id="amountPerDay" name="amountPerDay" required="" value="<?php $date1=date_create($_SESSION['issueDate']);$date2=date_create($_SESSION['returnDate']);$diff= date_diff($date1,$date2);$diffStr=$diff->format('%a');echo $diffStr; ?>"/>
+                                            Amount Per Day
+                                            <input type="text"  class="form-control" id="amountPerDay" name="Amount"  style="width: 25%" />
+                                        </td>
+                                    </tr>
+                                 <script>
+                                     function computeAmount() {
+                                         var amount= document.getElementById('amountPerDay').value;
+                                         var datediff=document.getElementById('dateDiff').value;
+
+                                         document.getElementById('result').value=amount*datediff;
+                                     }
+                                 </script>
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="result" name="result" class="form-control" style="width: 25%" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-
-                                            <input type="text" class="form-control" name="advanceAmount" id="advanceAmount" required="" value="<?php echo $diffStr*500;?>"/>
+                                           <button class="form-control"  name="cal" style="width: 25%" onclick="computeAmount();">Calculate</button>
                                         </td>
                                     </tr>
+
+
+                                    <tr>
                             </form>
+                            <?php
+                            if(isset($_POST['cal'])){
+                                mysqli_query($link,"INSERT INTO payment VALUE ('','$_POST[Amount]','$_POST[result]','$_POST[usr]')");
+                            }
+                            ?>
 
 
                         </div>

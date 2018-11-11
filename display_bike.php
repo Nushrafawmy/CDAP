@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
 include 'connection.php';
+session_start();
 ?>
 
 <!-- top navigation -->
@@ -123,7 +124,7 @@ include 'connection.php';
                         <?php
                         $res = mysqli_query($link, "select * from add_bicycle");
                         echo "<tr>";
-                        echo "<table class='table table-bordered'>";
+                        echo "<table  class='table table-bordered' id='user_data'>";
 
                         echo "<th>";
                         echo "Bike Number";
@@ -156,20 +157,7 @@ include 'connection.php';
 
                             echo "<td>"; ?> <img src="<?php echo $row["bike_image"]; ?>" height="100"
                                                  width="100"><?php echo "</td>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            echo "</td>";
+                                                       echo "</td>";
 
                         }
                         echo "</table>";
@@ -178,6 +166,14 @@ include 'connection.php';
                         }
 
                             ?>
+
+
+
+
+
+
+
+
 
 
 

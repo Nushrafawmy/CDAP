@@ -1,5 +1,7 @@
 <?php
+session_start();
 include 'header.php';
+include 'connection.php';
 $user = "94770590500";
 $password = "8754";
 ?>
@@ -76,7 +78,7 @@ $password = "8754";
                                     <td>
                                         Number
 
-                                        <input type="text" class="form-control" placeholder="Enter Number" name="num" required="">
+                                        <input type="text" class="form-control" placeholder="Enter Number" name="num" >
                                     </td>
                                 </tr>
 
@@ -86,7 +88,63 @@ $password = "8754";
                                         <input type="submit" name="btn_send" class="btn-default submit" value="Send Message"style="background-color: blue; color: whitesmoke">
                                     </td>
                                 </tr>
-                            </table>
+                            <tr>
+<td>
+                            <select name="Date" class="form-control selectpicker"   >
+                                <?php
+                                //SELECT * FROM `issue_bike` ORDER BY `issue_bike`.`returnDate
+                                $res=mysqli_query($link,"select returnDate from issue_bike");
+                                while ($row=mysqli_fetch_array($res))
+                                {
+                                    echo "<option>";
+                                    echo $row["returnDate"];
+
+                                    echo "</option>";
+                                }
+
+                                ?>
+
+                            </select>
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+                            <br>
+                            <input type="submit" name="find" class="btn-default submit" value="Due User"style="background-color: blue; color: whitesmoke">
+                            <br>
+                                </td>
+                            </tr>
+                            <?php
+                            if(isset($_POST['find'])){
+
+                            $res5=mysqli_query($link,"select username,number from issue_bike  WHERE returnDate='$_POST[Date]'");
+
+
+
+                                echo "<tr>";
+                                echo "<table class='table table-bordered'>";
+                                echo "<th>";
+                                echo "User";
+                                echo "</th>";
+                                echo "<th>";
+                                echo "Number";
+                                echo "</th>";
+                                echo "</tr>";
+
+
+
+                            while ($row=mysqli_fetch_array($res5)){
+                                echo "<tr>";
+                                echo "<td>".$row['username']."</td>";
+                                echo "<td>".$row['number']."</td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                            ?>
+                                <?php
+                            }
+                            ?>
+
                         </form>
 
                     </div>
@@ -96,7 +154,3 @@ $password = "8754";
     </div>
 </div>
 <!-- /page content -->
-
-<?php
-include 'footer.php';
-?>

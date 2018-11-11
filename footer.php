@@ -4,9 +4,10 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-       Route Pal System
+        &copy Route Pal System
     </div>
     <div class="clearfix"></div>
+
 </footer>
 <!-- /footer content -->
 </div>

@@ -52,7 +52,7 @@ include 'connection.php';
                             <table class="table">
                                 <tr>
                                     <td> Bike Number
-                                        <input type="text" class="form-control" placeholder="Enter Bike Number " name="bike_number" required="">
+                                        <input type="text" class="form-control" placeholder="Enter Bike Number " name="bike_number" required="" minlength="6" maxlength="6">
                                     </td>
                                 </tr>
 
@@ -72,7 +72,7 @@ include 'connection.php';
                                     </tr>
                                 <tr>
                                     <td> Bike cost
-                                        <input type="text" class="form-control" placeholder="Enter Bike cost" name="bike_cost" required=""></td>
+                                        <input type="text" class="form-control" placeholder="Enter Bike cost" name="bike_cost" required="" ></td>
                                 </tr>
                                 <tr>
                                     <td>
